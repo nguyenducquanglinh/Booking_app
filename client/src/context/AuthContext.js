@@ -4,7 +4,9 @@ const INITIAL_STATE = {
     user: JSON.parse(localStorage.getItem("user")) || null,
     loading: false,
     error: null,
+    loginView: 'login', // 'login' or 'register'
 };
+
 
 export const AuthContext = createContext(INITIAL_STATE)
 
@@ -33,7 +35,14 @@ const AuthReducer = (state, action) => {
                 user: null,
                 loading: false,
                 error: null,
+                loginView: 'login',
             };
+        case "SWITCH_LOGIN_VIEW":
+            return {
+                ...state,
+                loginView: action.payload,
+            };
+
         default:
             return state;
     }
@@ -52,7 +61,9 @@ export const AuthContextProvider = ({ children }) => {
                 user: state.user,
                 loading: state.loading,
                 error: state.error,
+                loginView: state.loginView,
                 dispatch,
+
             }}
         >
             {children}

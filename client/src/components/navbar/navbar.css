@@ -1,11 +1,11 @@
-.navbar{
+.navbar {
   height: 50px;
   background-color: #003580;
   display: flex;
   justify-content: center;
 }
 
-.navContainer{
+.navContainer {
   width: 100%;
   max-width: 1024px;
   color: white;
@@ -14,14 +14,53 @@
   justify-content: space-between;
 }
 
-.logo{
+.logo {
   font-weight: 500;
 }
 
-.navButton{
+.navItems {
+  display: flex;
+  gap: 20px;
+}
+
+.navButton {
   margin-left: 20px;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   color: #003580;
+}
+
+.userMenu {
+  position: relative;
+}
+
+.username {
+  cursor: pointer;
+  padding: 5px 10px;
+  background: white;
+  color: #003580;
+  border-radius: 3px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-top: 5px;
+  min-width: 150px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.dropdownItem {
+  padding: 10px;
+  color: #003580;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f5f5f5;
 }
