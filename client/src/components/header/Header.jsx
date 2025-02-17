@@ -19,6 +19,10 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
+  const [showLocations, setShowLocations] = useState(false);
+  const [filteredLocations, setFilteredLocations] = useState([]);
+  const locations = ["Đà Lạt", "Đà Nẵng", "Hà Nội", "TP.Hồ Chí Minh", "Nha Trang"];
+
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
     {
@@ -46,7 +50,7 @@ const Header = ({ type }) => {
     });
   };
 
-  const { dispatch } = useContext(SearchContext)
+  const { dispatch } = useContext(SearchContext);
 
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
@@ -89,9 +93,9 @@ const Header = ({ type }) => {
             </h1>
             <p className="headerDesc">
               Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              more with a free QLinhbooking account
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -99,8 +103,34 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
-                  onChange={(e) => setDestination(e.target.value)}
+                  value={destination}
+                  onChange={(e) => {
+                    setDestination(e.target.value);
+                    setShowLocations(true);
+                    setFilteredLocations(
+                      locations.filter(location =>
+                        location.toLowerCase().includes(e.target.value.toLowerCase())
+                      )
+                    );
+                  }}
+                  onFocus={() => setShowLocations(true)}
                 />
+                {showLocations && destination && (
+                  <div className="locationOptions">
+                    {filteredLocations.map((location, index) => (
+                      <div
+                        key={index}
+                        className="locationItem"
+                        onClick={() => {
+                          setDestination(location);
+                          setShowLocations(false);
+                        }}
+                      >
+                        {location}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />

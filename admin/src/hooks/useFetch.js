@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
 
 const useFetch = (url) => {
     const [data, setData] = useState([])
@@ -10,7 +11,11 @@ const useFetch = (url) => {
         const fetchData = async () => {
             setLoading(true)
             try {
-                const res = await axios.get(url);
+                const res = await axios.get(url, {
+                    headers: {
+                        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken
+                    }
+                });
                 setData(res.data);
             } catch (err) {
                 setError(err);
@@ -20,11 +25,14 @@ const useFetch = (url) => {
         fetchData();
     }, [url]);
 
-
     const reFetch = async () => {
         setLoading(true)
         try {
-            const res = await axios.get(url);
+            const res = await axios.get(url, {
+                headers: {
+                    token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken
+                }
+            });
             setData(res.data);
         } catch (err) {
             setError(err);

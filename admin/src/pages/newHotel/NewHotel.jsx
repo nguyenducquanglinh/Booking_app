@@ -52,7 +52,13 @@ const NewHotel = () => {
         photos: list,
       };
 
-      await axios.post("/hotels", newhotel);
+      await axios.post("/hotels", newhotel, {
+        headers: {
+          Authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken
+        }
+      });
+
+
     } catch (err) {console.log(err)}
   };
   return (
