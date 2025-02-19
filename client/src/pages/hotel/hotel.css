@@ -78,6 +78,7 @@
 .hotelDesc {
   font-size: 14px;
   margin-top: 20px;
+  white-space: pre-line;
 }
 
 .hotelDetailsPrice {
@@ -95,7 +96,9 @@
 }
 .hotelDetailsPrice > span {
   font-size: 14px;
+  white-space: pre-line;
 }
+
 .hotelDetailsPrice > h2 {
   font-weight: 300;
 }
