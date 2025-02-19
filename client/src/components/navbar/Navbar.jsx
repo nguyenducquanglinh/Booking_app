@@ -34,13 +34,17 @@ const Navbar = () => {
             {showDropdown && (
               <div className="dropdown">
                 <div className="dropdownItem" onClick={() => navigate("/profile")}>
-                  Personal Information
+                  Thông tin cá nhân
                 </div>
-                <div className="dropdownItem" onClick={() => navigate("/bookings")}>
-                  Booked Hotels
+                <div 
+                  className="dropdownItem" 
+                  onClick={() => navigate("/allbooked")}
+                >
+                  Phòng đã đặt
                 </div>
+
                 <div className="dropdownItem" onClick={handleLogout}>
-                  Log Out
+                  Đăng xuất
                 </div>
               </div>
             )}
@@ -55,7 +59,7 @@ const Navbar = () => {
                 navigate("/login");
               }}
             >
-              Register
+              Đăng ký
             </button>
             <button 
               className="navButton"
@@ -64,7 +68,7 @@ const Navbar = () => {
                 navigate("/login");
               }}
             >
-              Login
+              Đăng nhập
             </button>
 
           </div>

@@ -26,7 +26,7 @@ const Featured = () => {
 
         <div className="featuredTitles">
           <h1>Đà Lạt</h1>
-          <h2>{data[0]} khách sạn</h2>
+          <h2>{data[0]} chỗ nghỉ</h2>
         </div>
       </div>
 
@@ -41,7 +41,7 @@ const Featured = () => {
 
           <div className="featuredTitles">
             <h1>Đà Nẵng</h1>
-            <h2>{data[1]} khách sạn</h2>
+            <h2>{data[1]} chỗ nghỉ</h2>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ const Featured = () => {
 
           <div className="featuredTitles">
             <h1>Nha Trang</h1>
-            <h2>{data[2]} khách sạn</h2>
+            <h2>{data[2]} chỗ nghỉ</h2>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ const Featured = () => {
 
           <div className="featuredTitles">
             <h1>TP.Hồ Chí Minh</h1>
-            <h2>{data[3]} khách sạn</h2>
+            <h2>{data[3]} chỗ nghỉ</h2>
           </div>
         </div>
 
@@ -86,7 +86,7 @@ const Featured = () => {
 
           <div className="featuredTitles">
             <h1>Hà Nội</h1>
-            <h2>{data[4]} khách sạn</h2>
+            <h2>{data[4]} chỗ nghỉ</h2>
           </div>
           </div>
         </div>
