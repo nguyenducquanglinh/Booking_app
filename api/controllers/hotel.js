@@ -1,5 +1,7 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import Booking from "../models/Booking.js";
+
 
 export const createHotel = async (req, res, next) => {
     const newHotel = new Hotel(req.body);
@@ -117,7 +119,43 @@ export const countByType = async (req, res, next) => {
     }
 }
 
+export const createBooking = async (req, res, next) => {
+  const { userId, hotelId, rooms, checkInDate, checkOutDate, totalPrice } = req.body;
+  
+  try {
+    const newBooking = new Booking({
+      userId,
+      hotelId,
+      rooms,
+      checkInDate: new Date(checkInDate),
+      checkOutDate: new Date(checkOutDate),
+      totalPrice
+    });
+
+    const savedBooking = await newBooking.save();
+    res.status(200).json(savedBooking);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getBookingsByUser = async (req, res, next) => {
+  const { userId } = req.params;
+  
+  try {
+    const bookings = await Booking.find({ userId })
+      .populate('hotelId', 'name address')
+      .populate('rooms.roomId', 'title price roomNumbers');
+      
+    res.status(200).json(bookings);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 export const getHotelRooms = async (req, res, next) => {
+
     try {
         const hotel = await Hotel.findById(req.params.id);
         const list = await Promise.all(hotel.rooms.map(room => {

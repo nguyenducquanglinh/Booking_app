@@ -1,0 +1,95 @@
+.allbooked {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #e6f3ff;
+  min-height: 100vh;
+}
+
+.allbooked h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border: 1px solid #cce7ff;
+}
+
+.booking-header {
+  margin-bottom: 1rem;
+}
+
+.booking-header h3 {
+  margin: 0;
+  color: #222;
+  font-size: 1.25rem;
+}
+
+.booking-header div {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.booking-details {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-details > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.booking-details span:first-child {
+  font-weight: 500;
+  color: #444;
+}
+
+.booking-details span:last-child {
+  color: #666;
+}
+
+.rooms-list {
+  margin-top: 1rem;
+}
+
+.rooms-list h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.room-item {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background: #f0f8ff;
+  border-radius: 4px;
+  border: 1px solid #b3d9ff;
+}
+
+.room-item div {
+  margin: 0.25rem 0;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .allbooked {
+    padding: 1rem;
+  }
+  
+  .booking-item {
+    padding: 1rem;
+  }
+}
